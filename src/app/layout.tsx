@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -19,6 +20,7 @@ export default function RootLayout({
       cz-shortcut-listen="true"
       >
         {children}
+        <Toaster/>
       </body>
     </html>
   );

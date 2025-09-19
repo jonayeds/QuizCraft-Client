@@ -12,6 +12,7 @@ import {
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { login } from "@/services/auth/authService";
 
 const LoginForm = () => {
   const form = useForm({
@@ -20,8 +21,9 @@ const LoginForm = () => {
         password:""
     }
   });
-  const handleLogin: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+  const handleLogin: SubmitHandler<FieldValues> = async(data) => {
+    const result = await login(data);
+    console.log(result);
   };
   return (
     <Form {...form}>

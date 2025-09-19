@@ -4,6 +4,9 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
+import { register } from "@/services/auth/authService"
+import toast from "react-hot-toast"
+import { useRouter } from "next/navigation"
 
 const RegisterForm = () => {
     const form = useForm({
@@ -14,8 +17,18 @@ const RegisterForm = () => {
             name:"" 
         }
     })
-    const handleRegistration:SubmitHandler<FieldValues> = (data)=>{
-        console.log(data);  
+    const navigate = useRouter()
+    const handleRegistration:SubmitHandler<FieldValues> = async(data)=>{
+        const result = await register(data)
+        console.log(result);
+        if(result?.success){
+            toast.success("Registration Successful")
+            navigate.push("/")
+            
+        }else{
+            toast.error(result?.message || "Registration Failed")       
+        }
+
     }
   return (
     <Form {...form}>
