@@ -23,7 +23,6 @@ const UserProvider = ({children}:{children:React.ReactNode}) => {
     useEffect(()=>{
         const handleUser = async()=>{
             const user = await getUser()
-            console.log(user)
             setUser(user)
             setIsLoading(false)
         }

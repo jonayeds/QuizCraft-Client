@@ -15,5 +15,5 @@ export const middleware = (req: NextRequest) => {
 };
 
 export const config = {
-  matcher: ["/login", "/projects", "/register"],
+  matcher: ["/login", "/join-quiz", "/register", "/my-quizzes/:path*", "/create-quiz"],
 };

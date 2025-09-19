@@ -26,10 +26,26 @@ const Navbar = () => {
                 <p className={active("")}>Home</p>
                 <div className={activeUnderline("")}></div>
                 </Link>
-                <Link href="/" className="relative" >
+                {
+                    user ? (<>
+                    <Link href="/my-quizzes" className="relative" >
+                <p className={active("my-quizzes")}>My Quizzes</p>
+                <div className={activeUnderline("my-quizzes")}></div>
+                </Link>
+                    <Link href="/join-quiz" className="relative" >
+                <p className={active("join-quiz")}>Join Quiz</p>
+                <div className={activeUnderline("join-quiz")}></div>
+                </Link>
+                    <Link href="/create-quiz" className="relative" >
+                <p className={active("create-quiz")}>Create Quiz</p>
+                <div className={activeUnderline("create-quiz")}></div>
+                </Link>
+                    </>): <Link href="/" className="relative" >
                 <p className={active("about")}>About</p>
                 <div className={activeUnderline("about")}></div>
                 </Link>
+                }
+                
                 <Link href="/" className="relative" >
                 <p className={active("topics")}>Topics</p>
                 <div className={activeUnderline("topics")}></div>
