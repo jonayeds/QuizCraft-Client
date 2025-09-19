@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
-
-
+import Provider from "@/providers/Provider";
 
 export const metadata: Metadata = {
   title: "QuizCraft",
@@ -15,13 +14,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-      cz-shortcut-listen="true"
-      >
-        {children}
-        <Toaster/>
-      </body>
-    </html>
+    <Provider>
+      <html lang="en">
+        <body cz-shortcut-listen="true">
+          {children}
+          <Toaster />
+        </body>
+      </html>
+    </Provider>
   );
 }
