@@ -17,7 +17,7 @@ const CreatedQuizPage = async ({
   const participators = await getQuizParticipators(quizId);
 
   if (!data?.success) {
-    return <div>Quiz not found</div>;
+    return <div className="h-[60vh] flex items-center justify-center">Quiz not found</div>;
   }
   const quiz = data.data;
 
@@ -39,7 +39,7 @@ const CreatedQuizPage = async ({
       </div>
       <hr className="my-4 border-t border-gray-300/30 " />
       <div>
-        <h3 className="font-light text-2xl text-center">Participators</h3>
+        <h3 className="font-light text-2xl text-center">Leaderboard</h3>
       <hr className="my-4 border-t border-gray-300/30 " />
         <div className="flex flex-col gap-4 mt-4">{
             participators.map(p => (<div className="flex justify-between" key={p._id}>

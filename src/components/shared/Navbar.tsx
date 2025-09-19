@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 import { Button } from "../ui/button"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { useUser } from "@/context/UserContext"
 import { Avatar, AvatarImage } from "../ui/avatar"
 import { AvatarFallback } from "@radix-ui/react-avatar"
@@ -9,13 +9,20 @@ import { logout } from "@/services/auth/authService"
 
 const Navbar = () => {
     const path = usePathname().split("/")[1]
+    const router = useRouter()
     const active = (p:string) => p === path ? "text-accent": "" 
     const activeUnderline = (p:string) => p === path ? "bg-accent h-1 rounded-full absolute bottom-1 left-0 w-full" : "hidden" 
-    const {user, setUser} = useUser()
+    const {user, setUser, isLoading} = useUser()
     const handleLogout = async()=>{
         await logout()
         setUser(null)   
+        router.push("/")    
     }
+    if(isLoading) return <div className="justify-between p-4 flex ">
+        <div className="w-[5vw] h-6 bg-gradient-to-br from-white/40 to-white/20 rounded-md animate-pulse duration-300  "/>
+        <div className="w-[40vw] h-6 bg-gradient-to-br from-white/40 to-white/20 rounded-md animate-pulse duration-300  "/>
+        <div className="w-[10vw] h-6 bg-gradient-to-br from-white/40 to-white/20 rounded-md animate-pulse duration-300  "/>
+    </div>
 
   return (
     <div className="fixed top-0 left-0   text-white">
@@ -46,7 +53,7 @@ const Navbar = () => {
                 </Link>
                 }
                 
-                <Link href="/" className="relative" >
+                <Link href="/topics" className="relative" >
                 <p className={active("topics")}>Topics</p>
                 <div className={activeUnderline("topics")}></div>
                 </Link>

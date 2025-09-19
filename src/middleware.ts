@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const authRoutes = ["/register", "/login"];
-const privateRoutes = ["/my-quizzes"];
+const privateRoutes = ["/my-quizzes", "/my-quizzes", "/my-quizzes/created/:path", "/my-quizzes/joined/:path", "/create-quiz"];
 
 export const middleware = (req: NextRequest) => {
   const path = req.nextUrl.pathname;
@@ -12,8 +12,12 @@ export const middleware = (req: NextRequest) => {
   if (privateRoutes.includes(path) && !token) {
     return NextResponse.redirect(new URL("/login", req.url));
   }
+  if(path.startsWith("/my-quizzes") && !token){
+    return NextResponse.redirect(new URL("/login", req.url));
+  }
+
 };
 
 export const config = {
-  matcher: ["/login", "/join-quiz", "/register", "/my-quizzes/:path*", "/create-quiz"],
+  matcher: ["/login", "/join-quiz", "/register", "/my-quizzes", "/my-quizzes/created/:path", "/my-quizzes/joined/:path", "/create-quiz"],
 };
