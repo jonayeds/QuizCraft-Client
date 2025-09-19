@@ -13,6 +13,8 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { login } from "@/services/auth/authService";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
   const form = useForm({
@@ -21,9 +23,16 @@ const LoginForm = () => {
         password:""
     }
   });
+  const navigate = useRouter();   
   const handleLogin: SubmitHandler<FieldValues> = async(data) => {
     const result = await login(data);
-    console.log(result);
+    if(result?.success){
+            toast.success("Login Successful")
+            navigate.push("/")
+            
+        }else{
+            toast.error(result?.message || "Login Failed")       
+        }
   };
   return (
     <Form {...form}>

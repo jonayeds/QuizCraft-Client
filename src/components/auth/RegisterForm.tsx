@@ -20,7 +20,6 @@ const RegisterForm = () => {
     const navigate = useRouter()
     const handleRegistration:SubmitHandler<FieldValues> = async(data)=>{
         const result = await register(data)
-        console.log(result);
         if(result?.success){
             toast.success("Registration Successful")
             navigate.push("/")
