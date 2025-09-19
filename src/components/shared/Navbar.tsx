@@ -2,11 +2,20 @@
 import Link from "next/link"
 import { Button } from "../ui/button"
 import { usePathname } from "next/navigation"
+import { useUser } from "@/context/UserContext"
+import { Avatar, AvatarImage } from "../ui/avatar"
+import { AvatarFallback } from "@radix-ui/react-avatar"
+import { logout } from "@/services/auth/authService"
 
 const Navbar = () => {
     const path = usePathname().split("/")[1]
     const active = (p:string) => p === path ? "text-accent": "" 
     const activeUnderline = (p:string) => p === path ? "bg-accent h-1 rounded-full absolute bottom-1 left-0 w-full" : "hidden" 
+    const {user, setUser} = useUser()
+    const handleLogout = async()=>{
+        await logout()
+        setUser(null)   
+    }
 
   return (
     <div className="fixed top-0 left-0   text-white">
@@ -27,8 +36,20 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="flex gap-2">
-                <Link href="/login"><Button>Login</Button></Link>
-                <Link href="/register"><Button variant="outline">Register</Button></Link>
+                {
+                    user ? (
+                        <>
+                        <Avatar className="size-10 bg-accent border-2 border-primary  flex items-center justify-center">
+                            <AvatarImage src={user?.profileIamge || ""}/>
+                            <AvatarFallback className="text-xl">{user?.username?.charAt(0).toUpperCase()}</AvatarFallback>
+                        </Avatar>
+                        <Button onClick={handleLogout}>Logout</Button>
+                        
+                        </>
+                    ): (<><Link href="/login"><Button>Login</Button></Link>
+                <Link href="/register"><Button variant="outline">Register</Button></Link></>)
+                }
+                
             </div>
 
         </div>

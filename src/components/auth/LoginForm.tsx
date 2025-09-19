@@ -15,6 +15,7 @@ import { Button } from "../ui/button";
 import { login } from "@/services/auth/authService";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { useUser } from "@/context/UserContext";
 
 const LoginForm = () => {
   const form = useForm({
@@ -23,11 +24,13 @@ const LoginForm = () => {
         password:""
     }
   });
+  const {setUser} = useUser()
   const navigate = useRouter();   
   const handleLogin: SubmitHandler<FieldValues> = async(data) => {
     const result = await login(data);
     if(result?.success){
             toast.success("Login Successful")
+            setUser(result.data.data)
             navigate.push("/")
             
         }else{

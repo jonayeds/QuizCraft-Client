@@ -7,6 +7,7 @@ import { Button } from "../ui/button"
 import { register } from "@/services/auth/authService"
 import toast from "react-hot-toast"
 import { useRouter } from "next/navigation"
+import { useUser } from "@/context/UserContext"
 
 const RegisterForm = () => {
     const form = useForm({
@@ -18,10 +19,12 @@ const RegisterForm = () => {
         }
     })
     const navigate = useRouter()
+    const {setUser} = useUser()
     const handleRegistration:SubmitHandler<FieldValues> = async(data)=>{
         const result = await register(data)
         if(result?.success){
             toast.success("Registration Successful")
+            setUser(result.data.data)
             navigate.push("/")
             
         }else{

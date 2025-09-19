@@ -41,3 +41,7 @@ export const login = async(data:FieldValues)=>{
         return result
     }
 }
+
+export const logout = async ()=>{
+    (await cookies()).delete("quizcraft_access")        
+}

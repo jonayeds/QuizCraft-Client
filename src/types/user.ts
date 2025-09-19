@@ -6,6 +6,7 @@ export interface IUser {
     _id: string;
     createdAt: string;
     updatedAt: string;  
+    profileIamge?:string
 }
 
 export type TUserRole = "PLAYER" | "ADMIN";       
