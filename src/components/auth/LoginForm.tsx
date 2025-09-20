@@ -39,7 +39,7 @@ const LoginForm = () => {
   };
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleLogin)} className=" md:w-[40%] w-full justify-center flex flex-col gap-4 items-center">
+      <form onSubmit={form.handleSubmit(handleLogin)} className="w-full flex flex-col gap-4">
         <FormField
           control={form.control}
           name="identification"
@@ -48,7 +48,7 @@ const LoginForm = () => {
               <FormLabel />
               <FormDescription />
               <FormControl>
-                <Input {...field}  placeholder="Email or Username" type="text" value={field.value || ""} onChange={field.onChange} />
+                <Input {...field} className="placeholder:text-white/40"  placeholder="Email or Username" type="text" value={field.value || ""} onChange={field.onChange} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -62,7 +62,7 @@ const LoginForm = () => {
               <FormLabel />
               <FormDescription />
               <FormControl>
-                <Input {...field}  type="password" placeholder="Password" value={field.value || ""} onChange={field.onChange} />
+                <Input {...field} className="placeholder:text-white/40"  type="password" placeholder="Password" value={field.value || ""} onChange={field.onChange} />
               </FormControl>
               <FormMessage />
             </FormItem>

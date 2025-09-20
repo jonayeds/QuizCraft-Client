@@ -2,6 +2,7 @@
 
 import { config } from "@/config";
 import { IParticipator, IQuestion, IQuiz } from "@/types/quiz";
+import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
 import { FieldValues } from "react-hook-form";
 
@@ -83,6 +84,9 @@ export const getASingleQuiz = async (quizId: string) => {
     headers: {
       Authorization: `${token}`,
     },
+    next:{
+      tags:["generate"]
+    }
   });
   const result = await res.json();
   return result;
@@ -104,6 +108,7 @@ export const generateQuestions = async (
       },
     }
   );
+  revalidateTag("generate")
   const result = await res.json();
   return result;
 };

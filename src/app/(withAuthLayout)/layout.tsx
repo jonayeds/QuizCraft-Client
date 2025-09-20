@@ -1,13 +1,13 @@
 import AuthNav from '@/components/shared/AuthNav'
-import React from 'react'
+
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-br from-[#907CD3] to-[#4d438b]">
         <div className='relative '>
             <AuthNav/>
         </div>
-        <div className='flex min-h-screen justify-center items-center'>
+        <div className='flex min-h-[calc(100vh-10rem)] py-4 justify-center items-center px-4'>
         {children}      
         </div>
     </div>

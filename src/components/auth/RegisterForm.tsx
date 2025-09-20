@@ -34,7 +34,7 @@ const RegisterForm = () => {
     }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleRegistration)} className=" md:w-[40%] w-full justify-center flex flex-col gap-4 items-center">
+      <form onSubmit={form.handleSubmit(handleRegistration)} className="w-full flex flex-col gap-4">
         <FormField
           control={form.control}
           name="name"
@@ -43,7 +43,7 @@ const RegisterForm = () => {
               <FormLabel />
               <FormDescription />
               <FormControl>
-                <Input {...field}  placeholder="Name" type="text" value={field.value || ""} onChange={field.onChange} />
+                <Input className="placeholder:text-white/40"  {...field}  placeholder="Name" type="text" value={field.value || ""} onChange={field.onChange} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -57,7 +57,7 @@ const RegisterForm = () => {
               <FormLabel />
               <FormDescription />
               <FormControl>
-                <Input {...field}  placeholder="Email" type="email" value={field.value || ""} onChange={field.onChange} />
+                <Input className="placeholder:text-white/40"  {...field}  placeholder="Email" type="email" value={field.value || ""} onChange={field.onChange} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -71,7 +71,7 @@ const RegisterForm = () => {
               <FormLabel />
               <FormDescription />
               <FormControl>
-                <Input {...field}  placeholder="Username" type="text" value={field.value || ""} onChange={field.onChange} />
+                <Input className="placeholder:text-white/40"  {...field}  placeholder="Username" type="text" value={field.value || ""} onChange={field.onChange} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -85,7 +85,7 @@ const RegisterForm = () => {
               <FormLabel />
               <FormDescription />
               <FormControl>
-                <Input {...field}  type="password" placeholder="Password" value={field.value || ""} onChange={field.onChange} />
+                <Input className="placeholder:text-white/40 "  {...field}  type="password" placeholder="Password" value={field.value || ""} onChange={field.onChange} />
               </FormControl>
               <FormMessage />
             </FormItem>

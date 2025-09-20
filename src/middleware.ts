@@ -8,6 +8,7 @@ const privateRoutes = [
   "/my-quizzes/created/:path",
   "/my-quizzes/joined/:path",
   "/create-quiz",
+  "/join-quiz"
 ];
 const adminRoutes = [
   "/add-topic"

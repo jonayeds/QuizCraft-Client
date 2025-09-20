@@ -19,26 +19,41 @@ const JoinQuizForm = () => {
         }
     }
   return (
-    <div className="bg-white rounded-4xl mt-6 min-h-[60vh] p-4 text-black flex items-center justify-center">
-         <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleJoin)} className=" md:w-[40%] w-full justify-center flex flex-col gap-4 items-center">
-        <FormField
-          control={form.control}
-          name="joiningCode"
-          render={({field}) => (
-            <FormItem className="w-full ">
-              <FormLabel />
-              <FormDescription />
-              <FormControl>
-                <Input {...field}  type="text" placeholder="Joining Code" value={field.value || ""} onChange={field.onChange} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button className=" w-full mt-4" type="submit">Join</Button>
-      </form>
-    </Form>
+    <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/20">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(handleJoin)} className="space-y-6">
+          <FormField
+            control={form.control}
+            name="joiningCode"
+            render={({field}) => (
+              <FormItem>
+                <FormLabel className="text-white/90 text-sm font-medium">Quiz Code</FormLabel>
+                <FormControl>
+                  <Input 
+                    {...field}  
+                    type="text" 
+                    placeholder="Enter 6-digit code" 
+                    value={field.value || ""} 
+                    onChange={field.onChange}
+                    className="bg-white/20 border-white/30 text-white placeholder:text-white/60 focus:border-white/50 focus:ring-white/30 rounded-xl h-14 text-lg font-mono tracking-wider text-center"
+                  />
+                </FormControl>
+                <FormMessage className="text-red-200" />
+                <FormDescription className="text-white/70 text-sm text-center">
+                  Ask the quiz creator for the joining code
+                </FormDescription>
+              </FormItem>
+            )}
+          />
+          
+          <Button 
+            className="w-full h-14 bg-white text-[#4d438b] hover:bg-white/90 font-semibold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02]" 
+            type="submit"
+          >
+            Join Quiz
+          </Button>
+        </form>
+      </Form>
     </div>
   ) 
 }
