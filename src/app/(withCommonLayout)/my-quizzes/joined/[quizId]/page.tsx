@@ -8,7 +8,7 @@ const ParticipationPage = async({params}:{params: Promise<{ quizId: string }>}) 
   const questions = await getQuizQuestions(quizId);
 
   if(!(questions.length>0)){
-    return <div>Questions not found</div>
+    return <div className="flex justify-center items-center min-h-[20vh]">Questions not Generated yet</div>
   }
   const questionData = questions.map(q => ({
     _id: q._id,
@@ -16,7 +16,6 @@ const ParticipationPage = async({params}:{params: Promise<{ quizId: string }>}) 
     questionText: q.questionText,
     options: q.options  
   }))
-  console.log(questions[0])
 
   return (
     <div>

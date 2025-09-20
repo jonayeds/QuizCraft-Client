@@ -45,7 +45,7 @@ const AnswerQuestion = ({ questions }: IAnswerQuestionProps) => {
   return (
     <div>
       <div className="text-xl text-center min-h-[50vh] relative bg-[#010E3C]  max-w-[60vw] p-4 mx-auto flex justify-center items-center rounded-lg flex-col mt-20">
-        <div className="absolute h-4 w-4 top-4 right-4 bg-primary text-white">
+        <div className="absolute h-12 w-12 flex justify-center items-center rounded-full text-lg top-4 right-4 bg-primary text-white">
             <p>{currentQuestionIndex + 1}/{questions.length}</p>
         </div>
         <p>
