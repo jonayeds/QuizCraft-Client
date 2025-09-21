@@ -5,9 +5,9 @@ import CTA from "@/components/home/CTA";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br pt-12 from-[#907CD3] to-[#241E4E] text-white">
+    <div className="min-h-screen bg-gradient-to-br lg:pt-8 pt-24 from-[#907CD3] to-[#241E4E] text-white">
       {/* Hero Section */}
-      <div className="container mx-auto px-4 pt-20 pb-16">
+      <div className="container mx-auto px-4  pb-16">
         <div className="flex flex-col lg:flex-row items-center justify-between min-h-screen">
           {/* Left Content */}
           <div className="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
@@ -187,7 +187,7 @@ export default function Home() {
               Get started for free today!
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
               <Link href="/create-quiz">
                 <Button 
                   size="lg" 
