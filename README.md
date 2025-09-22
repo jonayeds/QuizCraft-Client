@@ -8,10 +8,9 @@ A modern, responsive React Next.js frontend application for QuizCraft - an intel
 ## 🚀 Features
 
 ### 🎨 Modern UI/UX
-- **Beautiful gradient design** with glassmorphism effects
 - **Fully responsive** design for all device sizes
 - **Tailwind CSS** with custom styling and animations
-- **Radix UI components** for consistent, accessible interface
+- **ShadCN UI components** for consistent, accessible interface
 - **Dark theme optimized** for better user experience
 
 ### 🔐 Authentication System
@@ -24,14 +23,12 @@ A modern, responsive React Next.js frontend application for QuizCraft - an intel
 ### 🧠 AI-Powered Quiz Creation
 - **Intelligent quiz generation** using AI
 - **Topic-based question creation** with custom categories
-- **Real-time question preview** and editing
 - **Automatic scoring calculation** for fair assessment
-- **Dynamic difficulty adjustment** based on content
 
 ### 📊 Quiz Management
-- **Create and manage quizzes** with intuitive interface
+- **Create quizzes** with intuitive interface
 - **Join quizzes with codes** for easy participation
-- **Real-time quiz taking** with progress tracking
+- ** quiz taking** with progress tracking
 - **Answer review and analytics** with detailed insights
 - **Leaderboard and scoring** system for competitive learning
 
@@ -39,15 +36,12 @@ A modern, responsive React Next.js frontend application for QuizCraft - an intel
 - **Mobile-first approach** with progressive enhancement
 - **Touch-friendly interactions** for mobile devices
 - **Adaptive layouts** for tablets and desktops
-- **Smooth animations** and transitions
-- **Optimized performance** across all devices
 
 ### 🎯 User Experience
 - **Interactive dashboard** with quiz statistics
 - **Real-time notifications** using React Hot Toast
-- **Form validation** with React Hook Form and Zod
+- **Form validation** with React Hook Form
 - **Loading states and error handling** for better UX
-- **Keyboard navigation** and accessibility features
 
 ## 🛠️ Tech Stack
 
@@ -56,12 +50,11 @@ A modern, responsive React Next.js frontend application for QuizCraft - an intel
 - **TypeScript** - Type-safe development experience
 - **Tailwind CSS** - Utility-first CSS framework
 - **NextAuth.js** - Complete authentication solution
-- **Radix UI** - Low-level UI primitives
+- **ShadCN UI** - UI component Library
 - **React Hook Form** - Performant forms with validation
-- **Zod** - TypeScript-first schema validation
 - **React Hot Toast** - Beautiful notifications
 - **Moment.js** - Date and time manipulation
-- **Lucide React** - Beautiful icon library
+- **React icons** - Beautiful icon library
 
 ## 📁 Project Structure
 
@@ -234,46 +227,8 @@ The project uses Tailwind CSS v4 with custom configuration:
 - **Border Styles:** `border border-white/20`
 - **Text Hierarchy:** White primary, white/80 secondary, white/60 tertiary
 
-### Component Patterns
-
-```tsx
-// Glassmorphism Card
-<div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20">
-  {/* Content */}
-</div>
-
-// Gradient Button
-<button className="bg-gradient-to-r from-[#907CD3] to-[#4d438b] text-white rounded-xl px-6 py-3">
-  {/* Button Text */}
-</button>
-
-// Responsive Grid
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-  {/* Grid Items */}
-</div>
-```
-
-## 📱 Responsive Breakpoints
-
-| Breakpoint | Screen Size | Usage |
-|------------|-------------|-------|
-| `sm` | 640px+ | Small tablets |
-| `md` | 768px+ | Tablets |
-| `lg` | 1024px+ | Small desktops |
-| `xl` | 1280px+ | Large desktops |
-| `2xl` | 1536px+ | Extra large screens |
-
 ## 🧪 Testing
 
-**Run linting:**
-```bash
-npm run lint
-```
-
-**Type checking:**
-```bash
-npx tsc --noEmit
-```
 
 **Manual testing checklist:**
 - [ ] Authentication flow (login/logout)
@@ -313,18 +268,6 @@ vercel login
 vercel
 ```
 
-### Other Deployment Platforms
-
-**Netlify:**
-1. Connect your repository
-2. Set build command: `npm run build`
-3. Set publish directory: `out` (if using static export)
-4. Add environment variables
-
-**Railway:**
-1. Connect your GitHub repository
-2. Add environment variables
-3. Deploy automatically
 
 ## 🔍 Troubleshooting
 
@@ -349,13 +292,6 @@ vercel
 - Clear Tailwind CSS cache: `npm run build`
 - Check for conflicting CSS classes
 - Verify responsive breakpoints
-
-### Debug Mode
-
-Enable debug mode by adding to your `.env`:
-```env
-NEXTAUTH_DEBUG=true
-```
 
 ## 🤝 Contributing
 
@@ -384,27 +320,6 @@ NEXTAUTH_DEBUG=true
 - Implement **proper error handling** and loading states
 - Write **meaningful commit messages**
 - Add **comments** for complex logic
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Next.js** team for the amazing framework
-- **NextAuth.js** for seamless authentication
-- **Tailwind CSS** for utility-first styling
-- **Radix UI** for accessible component primitives
-- **Vercel** for excellent deployment platform
-
-## 📧 Support
-
-For support:
-- Create an issue in the repository
-- Check existing issues for solutions
-- Contact the development team
-
----
 
 **Built with ❤️ for better learning experiences! 🎓**
 
