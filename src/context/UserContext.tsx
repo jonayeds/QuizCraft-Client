@@ -1,6 +1,7 @@
 "use client"
 
 
+import { getAuthJsSession, socialLogin } from "@/services/auth/authService";
 import { getUser } from "@/services/user/userService";
 import { IUser } from "@/types/user"
 import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from "react"
@@ -22,7 +23,14 @@ const UserProvider = ({children}:{children:React.ReactNode}) => {
 
     useEffect(()=>{
         const handleUser = async()=>{
-            const user = await getUser()
+            let user = await getUser()
+            const session = await getAuthJsSession()
+            if(session){
+                if(!user){
+                    const socialUser = await socialLogin()
+                    user = socialUser?.data || null
+                }
+            }
             setUser(user)
             setIsLoading(false)
         }
