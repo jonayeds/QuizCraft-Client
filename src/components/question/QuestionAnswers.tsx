@@ -2,10 +2,7 @@
 
 import { IQuestion } from "@/types/quiz";
 import { useState } from "react";
-import {
-  TbPlayerTrackNextFilled,
-  TbPlayerTrackPrevFilled,
-} from "react-icons/tb";
+import { StepBack, StepForward } from "lucide-react"
 
 const QuestionAnswers = ({ questions }: { questions: IQuestion[] }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -86,7 +83,7 @@ const QuestionAnswers = ({ questions }: { questions: IQuestion[] }) => {
             disabled={currentQuestionIndex === 0}
             className="flex items-center gap-1 sm:gap-2 bg-white/20 hover:bg-white/30 text-white border border-white/30 disabled:opacity-50 disabled:cursor-not-allowed rounded-xl px-3 sm:px-6 py-2 sm:py-3 transition-all duration-200 text-sm sm:text-base"
           >
-            <TbPlayerTrackPrevFilled />
+            <StepBack />
             <span className="hidden sm:inline">Previous</span>
             <span className="sm:hidden">Prev</span>
           </button>
@@ -113,7 +110,7 @@ const QuestionAnswers = ({ questions }: { questions: IQuestion[] }) => {
           >
             <span className="hidden sm:inline">Next</span>
             <span className="sm:hidden">Next</span>
-            <TbPlayerTrackNextFilled />
+            <StepForward />
           </button>
         </div>
       </div>

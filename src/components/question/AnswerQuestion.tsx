@@ -1,11 +1,10 @@
 "use client";
 import { useState } from "react";
-import { TbPlayerTrackNextFilled } from "react-icons/tb";
-import { TbPlayerTrackPrevFilled } from "react-icons/tb";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 import { submitAnswers } from "@/services/quiz/quizService";
+import { StepBack, StepForward } from "lucide-react"
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
@@ -125,7 +124,7 @@ const AnswerQuestion = ({ questions }: IAnswerQuestionProps) => {
             disabled={currentQuestionIndex === 0}
             className="bg-white/20 hover:bg-white/30 text-white border border-white/30 disabled:opacity-50 disabled:cursor-not-allowed rounded-xl px-3 sm:px-6 py-2 sm:py-3 text-sm sm:text-base"
           >
-            <TbPlayerTrackPrevFilled className="mr-1 sm:mr-2 text-sm sm:text-base" />
+            <StepBack className="mr-1 sm:mr-2 text-sm sm:text-base" />
             <span className="hidden sm:inline">Previous</span>
             <span className="sm:hidden">Prev</span>
           </Button>
@@ -157,7 +156,7 @@ const AnswerQuestion = ({ questions }: IAnswerQuestionProps) => {
           >
             <span className="hidden sm:inline">Next</span>
             <span className="sm:hidden">Next</span>
-            <TbPlayerTrackNextFilled className="ml-1 sm:ml-2 text-sm sm:text-base" />
+            <StepForward className="ml-1 sm:ml-2 text-sm sm:text-base" />
           </Button>
         </div>
       </div>
